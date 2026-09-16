@@ -16,13 +16,13 @@ st.markdown("""
 <style>
 /* Background ya dashboard nzima */
 .stApp {
-    background-color: #F5F7FA;
-    color: #1a1a1a;
+    background-color: #eafaf1;
+    color: #14532d;
 }
 
 /* Sidebar background */
 section[data-testid="stSidebar"] {
-    background-color: #FFFFFF;
+    background-color: #black;
     border-right: 1px solid #e0e0e0;
 }
 
@@ -32,18 +32,18 @@ div[data-testid="stMetric"] {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
-    background-color: #FFFFFF;
+    background-color:#14532d;
 }
 div[data-testid="stMetricValue"] {
-    color: #1f77b4;
+    color:white;
 }
 div[data-testid="stMetricLabel"] {
-    color: #444444;
+    color:black;
 }
 
 /* Expander styling */
 div[data-testid="stExpander"] {
-    background-color: #FFFFFF;
+    background-color: #white;
     border-radius: 10px;
     border: 1px solid #d9d9d9;
 }
