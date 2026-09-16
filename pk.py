@@ -1,13 +1,13 @@
 import pandas as pd
 import streamlit as st
-from sqlalchemy import create_engine
-import pymysql
+#from sqlalchemy import create_engine
+#import pymysql
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("Ecommerce_daatset.csv")
-data = create_engine("mysql+pymysql://root:@localhost/ecommerce")
-df.to_sql(name="manunuzi", con=data, if_exists="replace", index=False)
-df_mysql = pd.read_sql("select * from manunuzi", con=data)
+#data = create_engine("mysql+pymysql://root:@localhost/ecommerce")
+#df.to_sql(name="manunuzi", con=data, if_exists="replace", index=False)
+#df_mysql = pd.read_sql("select * from manunuzi", con=data)
 
 st.set_page_config(layout="wide")
 
@@ -60,35 +60,35 @@ st.subheader("E-commerce Dashboard")
 st.sidebar.subheader("Filter data")
 category = st.sidebar.multiselect(
     "Select category",
-    options=df_mysql["Category"].unique(),
-    default=df_mysql["Category"].unique()
+    options=df["Category"].unique(),
+    default=df["Category"].unique()
 )
 brand = st.sidebar.multiselect(
     "Select brand",
-    options=df_mysql["Brand"].unique(),
-    default=df_mysql["Brand"].unique()
+    options=df["Brand"].unique(),
+    default=df["Brand"].unique()
 )
 user_age = st.sidebar.slider(
     "Select user_age",
-    int(df_mysql["User_Age"].min()),
-    int(df_mysql["User_Age"].max()),
-    (int(df_mysql["User_Age"].min()), int(df_mysql["User_Age"].max()))
+    int(df["User_Age"].min()),
+    int(df["User_Age"].max()),
+    (int(df["User_Age"].min()), int(df["User_Age"].max()))
 )
 user_gender = st.sidebar.multiselect(
     "Select user_gender",
-    options=df_mysql["User_Gender"].unique(),
-    default=df_mysql["User_Gender"].unique()
+    options=df["User_Gender"].unique(),
+    default=df["User_Gender"].unique()
 )
 user_location = st.sidebar.multiselect(
     "Select user_location",
-    options=df_mysql["User_Location"].unique(),
-    default=df_mysql["User_Location"].unique()
+    options=df["User_Location"].unique(),
+    default=df["User_Location"].unique()
 )
 
-selection = df_mysql[
-    (df_mysql["Category"].isin(category)) & (df_mysql["Brand"].isin(brand)) &
-    (df_mysql["User_Age"] >= user_age[0]) & (df_mysql["User_Age"] <= user_age[1]) &
-    (df_mysql["User_Gender"].isin(user_gender)) & (df_mysql["User_Location"].isin(user_location))
+selection = df[
+    (df["Category"].isin(category)) & (df["Brand"].isin(brand)) &
+    (df_mysql["User_Age"] >= user_age[0]) & (df["User_Age"] <= user_age[1]) &
+    (df["User_Gender"].isin(user_gender)) & (df["User_Location"].isin(user_location))
 ]
 
 
