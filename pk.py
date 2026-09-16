@@ -87,7 +87,7 @@ user_location = st.sidebar.multiselect(
 
 selection = df[
     (df["Category"].isin(category)) & (df["Brand"].isin(brand)) &
-    (df_mysql["User_Age"] >= user_age[0]) & (df["User_Age"] <= user_age[1]) &
+    (df["User_Age"] >= user_age[0]) & (df["User_Age"] <= user_age[1]) &
     (df["User_Gender"].isin(user_gender)) & (df["User_Location"].isin(user_location))
 ]
 
